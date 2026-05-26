@@ -1,357 +1,127 @@
-<div align="center">
+# 🚀 Ultimate Laravel Commands Key Guide (The Definitive Cheat Sheet)
 
-# ⚡ CODERVISUAL DEVELOPER TOOLKIT
-
-### 🚀 Full Stack Developer | System Engineer | DevOps Explorer
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,100:2c5364&height=220&section=header&text=Developer%20Command%20Hub&fontSize=32&fontColor=ffffff" />
+A comprehensive, easy-to-understand reference guide for Laravel, PHP, and Composer commands, tailored for quick workflows.
 
 ---
 
-## 💡 About This Repository
+## 🧱 1. PHP & Composer (Base Setup)
 
-🧠 A complete **Developer Command Hub** for Windows, Laravel, Git, Node.js & System Tools  
+### 🔑 `php -v`
+👉 PHP version check করে।
+* **Use:** সিস্টেমে PHP সঠিকভাবে ইনস্টলড এবং কনফিগারড আছে কিনা তা নিশ্চিত করতে।
 
-⚙️ Beginner → Intermediate → Advanced all-in-one guide  
+### 🔑 `composer -V`
+👉 Composer version check করে।
+* **Use:** Laravel-এর ডিপেন্ডেন্সি ম্যানেজার ঠিকঠাক কাজ করছে কিনা তা দেখতে।
 
-🚀 Safe, Legal & Production-ready commands only  
+### 🔑 `composer install`
+👉 `composer.lock` ফাইল অনুযায়ী প্রজেক্টের সব packages ইনস্টল করে।
+* **Use:** নতুন প্রজেক্ট ক্লোন (Clone) করার পর প্রথম কাজ।
 
----
-
-## ⚡ Tech Stack Covered
-
-<div align="center">
-
-![Windows](https://img.shields.io/badge/Windows-System-blue)
-![Laravel](https://img.shields.io/badge/Laravel-Framework-red)
-![Git](https://img.shields.io/badge/Git-VersionControl-orange)
-![Node.js](https://img.shields.io/badge/Node.js-JS-green)
-![PowerShell](https://img.shields.io/badge/PowerShell-Automation-blue)
-![MySQL](https://img.shields.io/badge/MySQL-Database-lightblue)
-
-</div>
+### 🔑 `composer update`
+👉 `composer.json` অনুযায়ী সব প্যাকেজ লেটেস্ট ভার্সনে আপডেট করে এবং lock ফাইল রিফ্রেশ করে।
+* **Use:** প্রজেক্টের ডিপেন্ডেন্সি আপডেট করার জন্য।
 
 ---
 
-## 🚀 Quick Start
+## 🚀 2. Laravel Project Setup
 
-```bash
-git clone https://github.com/codexvisual/your-repo-name
-cd your-repo-name
-```
+### 🔑 `composer create-project laravel/laravel project-name`
+👉 একদম ফ্রেশ একটি Laravel প্রজেক্ট ডিরেক্টরি তৈরি করে।
+* **Use:** নতুন প্রজেক্ট স্ক্র্যাচ থেকে শুরু করার জন্য।
 
----
-
-# 🧑‍💻 CORE COMMAND MODULES
-
----
-
-## 🖥 WINDOWS COMMANDS
-
-⚡ System Info  
-```powershell
-systeminfo
-winver
-```
-
-🧹 Cleanup & Speed  
-```powershell
-cleanmgr
-del /q/f/s %TEMP%\*
-taskmgr
-```
-
-🌐 Network Tools  
-```powershell
-ipconfig
-ipconfig /flushdns
-ping google.com
-```
-
-🔐 Security  
-```powershell
-windowsdefender:
-Start-MpScan -ScanType QuickScan
-```
+### 🔑 `php artisan serve`
+👉 লোকাল ডেভেলপমেন্ট সার্ভার রান করে।
+* **Use:** ব্রাউজারে প্রজেক্টটি চালানোর জন্য (Default: `http://127.0.0.1:8000`)।
 
 ---
 
-## ⚙️ LARAVEL COMMANDS
+## 🔑 3. App Key & Configuration
 
-🚀 Setup  
-```bash
-composer create-project laravel/laravel app
-php artisan serve
+### 🔑 `php artisan key:generate`
+👉 অ্যাপ্লিকেশনের জন্য একটি সিকিউর ক্রিপ্টোগ্রাফিক কি (AES-256) জেনারেট করে `.env` ফাইলে সেট করে।
+* **Use:** প্রজেক্ট ফার্স্ট টাইম সেটআপ এবং ইউজার সেশন ও এনক্রিপশনের নিরাপত্তা নিশ্চিত করতে।
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=codexvisual&theme=tokyonight" />
+### 🔑 `php artisan config:clear`
+👉 কনফিগারেশন ক্যাশ ফাইলটি ডিলিট করে。
+* **Use:** `.env` বা `config/` ফোল্ডারের ফাইলে কোনো পরিবর্তন করার পর তা ইনস্ট্যান্টলি অ্যানাবল করতে।
 
----
-
-## ⚠ Disclaimer
-
-This repository is for **educational & development purposes only**.  
-All commands are safe, legal & system-approved tools.
+### 🔑 `php artisan config:cache`
+👉 সব কনফিগারেশন ফাইলকে একটি একক ফাইলে কম্বাইন করে ক্যাশ করে, যা পারফরম্যান্স বুস্ট দেয়।
+* **Use:** **Production Server**-এ মাস্ট ইউজ করতে হবে।
 
 ---
 
-## 🤝 Connect
+## 🗄 4. Database & Migration System
 
-[![GitHub](https://img.shields.io/badge/GitHub-codexvisual-black)](https://github.com/codexvisual)
-[![Email](https://img.shields.io/badge/Email-Contact-red)](mailto:rahat830611@gmail.com)
+### 🔑 `php artisan migrate`
+👉 নতুন এবং পেন্ডিং থাকা সব মাইগ্রেশন ফাইল রান করে ডাটাবেজে টেবিল তৈরি করে।
+* **Use:** ডাটাবেজ স্ট্রাকচার আপডেট বা অ্যাপ্লাই করতে。
 
----
+### 🔑 `php artisan migrate:rollback`
+👉 একদম শেষ ধাপে রান হওয়া মাইগ্রেশনগুলোকে আনডু (Undo) করে।
+* **Use:** রিসেন্ট কোনো টেবিলে ভুল হলে তা ফিক্স করতে। (নির্দিষ্ট স্টেপ আনডু করতে: `--step=5`)
 
-## ⚡ Quote
+### 🔑 `php artisan migrate:fresh`
+👉 ডাটাবেজের সব টেবিল সম্পূর্ণ ড্রপ (Delete) করে একদম শুরু থেকে আবার সব মাইগ্রেশন রান করে।
+* **Use:** ডেভেলপমেন্টের সময় ডাটাবেজ ক্লিন রিসেট করতে।
 
-> “Clean code, smart system, scalable future.”
+### 🔑 `php artisan migrate:refresh`
+👉 সব মাইগ্রেশন রোলব্যাক করে এবং আবার রান করে।
+* **Use:** ডাটাবেজ ড্রপ না করে স্ট্রাকচার রিলোড করতে।
 
----
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=120&section=footer" />
-
-</div>
-# 🚀 Laravel Commands Key Guide (What does what?)
-
-A simple explanation guide for Laravel + PHP + Composer commands.
-
----
-
-# 🧱 1. PHP & Composer (Base Setup)
-
-## 🔑 php -v
-👉 PHP version check করে  
-✔ Use: জানতে PHP install আছে কিনা
-
-## 🔑 composer -V
-👉 Composer version check  
-✔ Use: Laravel dependency manager working কিনা check
-
-## 🔑 composer install
-👉 Project এর সব packages install করে  
-✔ Use: নতুন project clone করার পর
-
-## 🔑 composer update
-👉 Packages latest version এ update করে  
-✔ Use: dependency refresh করার জন্য
+### 🔑 `php artisan migrate:status`
+👉 কোন কোন মাইগ্রেশন রান হয়েছে আর কোনগুলো বাকি আছে তার একটি স্ট্যাটাস টেবিল দেখায়।
+* **Use:** ডাটাবেজ সিঙ্ক চেক করতে।
 
 ---
 
-# 🚀 2. Laravel Project Setup
+## 🧱 5. MVC & Core Component Generation (The 'make' Commands)
 
-## 🔑 composer create-project laravel/laravel app
-👉 নতুন Laravel project তৈরি করে  
-✔ Use: fresh project start করার জন্য
+### 🔑 `php artisan make:model Product`
+👉 শুধুমাত্র একটি Eloquent Model তৈরি করে।
+* **Use:** ডাটাবেজ টেবিলকে অবজেক্ট-ওরিয়েন্টিড উপায়ে রিপ্রেজেন্ট করতে।
 
-## 🔑 php artisan serve
-👉 Local server run করে  
-✔ Use: http://127.0.0.1:8000 চালাতে
+### 🔑 `php artisan make:model Product -m`
+👉 Model এবং এর সাথে ডিক্লেয়ারড ডাটাবেজ **Migration** ফাইল একসাথে তৈরি করে।
+* **Use:** টেবিল ও মডেলের বেসিক স্ট্রাকচার এক ক্লিকে রেডি করতে।
 
----
+### 🔑 `php artisan make:model Product -mc`
+👉 Model + Migration + **Controller** একসাথে তৈরি করে।
+* **Use:** ব্যাকএন্ডের ফুল ফিচার আর্কিটেকচার সেটআপের জন্য।
 
-# 🔑 3. App Key & Config
-
-## 🔑 php artisan key:generate
-👉 Security key generate করে (.env file এ)  
-✔ Use: project first setup
-
-## 🔑 php artisan config:clear
-👉 Config cache clear করে  
-✔ Use: .env change করলে
-
-## 🔑 php artisan config:cache
-👉 Config cache করে performance boost দেয়  
-✔ Use: production server
+### 🔑 `php artisan make:model Product -mrcs`
+👉 Model + Migration + Resource Controller + Factory + Seeder একসাথে তৈরি করে।
+* **Use:** এক কমান্ডে একটি ফিচারের সবকিছু (All-in-one) রেডি করার জন্য।
 
 ---
 
-# 🗄 4. Database (Migration System)
+### 🔑 `php artisan make:controller ProductController`
+👉 একটি ব্ল্যাংক কন্ট্রোলার ফাইল তৈরি করে।
+* **Use:** অ্যাপ্লিকেশনের বিজনেস লজিক হ্যান্ডেল করতে।
 
-## 🔑 php artisan migrate
-👉 Database table create করে  
-✔ Use: DB structure apply করতে
+### 🔑 `php artisan make:controller ProductController -r`
+👉 একটি **Resource Controller** তৈরি করে (CRUD-এর জন্য ইণ্ডেক্স, ক্রিয়েট, স্টোর, শো, এডিট, আপডেট, ডেস্ট্রয় মেথড রেডি থাকে)।
+* **Use:** স্ট্যান্ডার্ড CRUD সিস্টেম দ্রুত তৈরি করতে।
 
-## 🔑 php artisan migrate:fresh
-👉 সব table delete করে নতুন করে তৈরি করে  
-✔ Use: clean reset database
-
-## 🔑 php artisan migrate:rollback
-👉 last migration undo করে  
-✔ Use: mistake fix করতে
-
-## 🔑 php artisan migrate:reset
-👉 সব migration rollback করে  
-✔ Use: full reset
+### 🔑 `php artisan make:controller ProductController --api`
+👉 ক্রিয়েট এবং এডিট মেথড ছাড়া (যা API-তে লাগে না) শুধু API ফ্রেন্ডলি মেথডসহ কন্ট্রোলার তৈরি করে।
+* **Use:** RESTful API ডেভেলপমেন্টের সময়।
 
 ---
 
-# 🧱 5. MVC (Model - View - Controller)
+### 🔑 `php artisan make:middleware CheckAdmin`
+👉 নতুন একটি মিডলওয়্যার ফিল্টার তৈরি করে।
+* **Use:** রিকোয়েস্ট অথেন্টিকেশন বা রোল-বেসড অ্যাক্সেস কন্ট্রোল করতে।
 
-## 🔑 php artisan make:model Product
-👉 Model তৈরি করে  
-✔ Use: database table represent করতে
-
-## 🔑 php artisan make:model Product -m
-👉 Model + Migration একসাথে তৈরি  
-✔ Use: database ready structure
-
-## 🔑 php artisan make:model Product -mc
-👉 Model + Migration + Controller তৈরি  
-✔ Use: full feature setup
+### 🔑 `php artisan make:request StoreProductRequest`
+👉 একটি কাস্টম Form Request ক্লাস তৈরি করে।
+* **Use:** কন্ট্রোলার থেকে ভ্যালিডেশন লজিক আলাদা করে কোড ক্লিন রাখতে।
 
 ---
 
-## 🔑 php artisan make:controller ProductController
-👉 Controller তৈরি করে  
-✔ Use: logic handle করতে
+## 📄 6. Views (Blade Engine)
 
-## 🔑 php artisan make:controller ProductController -r
-👉 Resource Controller (CRUD ready)  
-✔ Use: full CRUD system
-
----
-
-## 📄 View (Blade)
-
-👉 View file manually তৈরি করতে হয়:
-
-```
+👉 ভিউ ফাইল ম্যানুয়ালি বা এক্সটেনশনের মাধ্যমে তৈরি করতে হয়:
+```text
 resources/views/home.blade.php
-```
-
-✔ Use: UI design show করার জন্য
-
----
-
-# 🌐 6. Routes (URL System)
-
-## 🔑 Route Example
-```php
-Route::get('/', function () {
-    return view('welcome');
-});
-```
-
-👉 কাজ: URL কে page/logic এর সাথে connect করে
-
-## 🔑 Controller Route
-```php
-Route::get('/products', [ProductController::class, 'index']);
-```
-
-✔ Use: controller call করার জন্য
-
----
-
-# 🧪 7. Tinker (Testing Tool)
-
-## 🔑 php artisan tinker
-👉 Live database test tool  
-✔ Use: query test without UI
-
-Example:
-```php
-App\Models\User::all();
-```
-
----
-
-# ⚡ 8. Cache & Performance
-
-## 🔑 php artisan optimize:clear
-👉 সব cache clear করে  
-✔ Use: error fix / update apply
-
-## 🔑 php artisan optimize
-👉 system optimize করে speed boost  
-✔ Use: production
-
-## 🔑 php artisan route:cache
-👉 routes cache করে speed বাড়ায়  
-✔ Use: live server
-
----
-
-# 🧵 9. Queue System
-
-## 🔑 php artisan queue:work
-👉 background job চালায়  
-✔ Use: email / task processing
-
-## 🔑 php artisan queue:restart
-👉 queue restart করে  
-✔ Use: updates apply
-
----
-
-# 🧰 10. Maintenance Mode
-
-## 🔑 php artisan down
-👉 site বন্ধ করে maintenance mode  
-✔ Use: update time
-
-## 🔑 php artisan up
-👉 site আবার live করে  
-✔ Use: maintenance শেষ
-
----
-
-# 📦 11. Seeder & Factory
-
-## 🔑 php artisan make:seeder UserSeeder
-👉 dummy data insert tool  
-✔ Use: testing data
-
-## 🔑 php artisan db:seed
-👉 seeder run করে  
-✔ Use: database fill
-
-## 🔑 php artisan make:factory ProductFactory
-👉 fake data generator  
-✔ Use: testing system
-
----
-
-# 🔐 12. Authentication (Login System)
-
-## 🔑 laravel/ui install
-```bash
-composer require laravel/ui
-php artisan ui bootstrap --auth
-npm install
-npm run dev
-```
-
-✔ Use: login/register system
-
----
-
-# 📊 13. Important Debug Commands
-
-## 🔑 php artisan route:list
-👉 সব routes দেখায়  
-✔ Use: debugging URL
-
-## 🔑 php artisan --version
-👉 Laravel version check  
-✔ Use: info check
-
----
-
-# 💡 FINAL SUMMARY
-
-✔ Model = Database structure  
-✔ View = UI design  
-✔ Controller = Logic  
-✔ Migration = Database setup  
-✔ Route = URL system  
-✔ Tinker = Live testing tool  
-
----
-
-# ⚠ Note
-
-সব commands Laravel official system based & safe for development use.
-
----
-
-Made with ❤️ by CodexVisual
